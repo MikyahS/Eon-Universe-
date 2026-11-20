@@ -1,0 +1,23 @@
+:root {
+    --deep-olive: #303020;
+    --muted-olive: #606040;
+    --dusty-sage: #A0A080;
+    --faded-cream: #C0C0A0;
+    --almost-black: #151510;
+    --slate-blue: #647586;
+}
+
+/* GENERAL PAGE SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #151510;
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    min-height: 100vh;
+}
