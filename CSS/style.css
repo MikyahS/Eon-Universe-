@@ -15,9 +15,15 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #151510;
     color: #C0C0A0;
-    font-family: Georgia, serif;
     min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    font-family: Georgia, serif;
 }
