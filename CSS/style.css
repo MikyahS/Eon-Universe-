@@ -63,3 +63,45 @@ body {
 .top-nav nav a:hover {
     color: #647586;
 }
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-label {
+    color: #647586;
+    font-size: 11px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    font-size: clamp(100px, 20vw, 250px);
+    font-weight: normal;
+    letter-spacing: 15px;
+    line-height: 1;
+}
+
+.hero-subtitle {
+    color: #A0A080;
+    font-size: 12px;
+    letter-spacing: 8px;
+    margin-top: 25px;
+}
+
+.hero-line {
+    width: 90px;
+    height: 1px;
+    background-color: #606040;
+    margin-top: 35px;
+}
