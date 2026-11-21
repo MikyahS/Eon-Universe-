@@ -107,3 +107,162 @@ body {
     background-color: #606040;
     margin-top: 35px;
 }
+
+/* ALBUM HOMEPAGE */
+
+.album-hero {
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 20px;
+    background: #151510;
+}
+
+.album-label {
+    color: #647586;
+    font-size: 10px;
+    letter-spacing: 6px;
+    margin-bottom: 45px;
+    z-index: 2;
+}
+
+.album-container {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: albumFloat 5s ease-in-out infinite;
+    z-index: 2;
+}
+
+.album-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.album-cover:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 80px rgba(100, 117, 134, 0.3);
+}
+
+.album-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(
+        circle,
+        rgba(96, 96, 64, 0.3),
+        transparent 70%
+    );
+    filter: blur(35px);
+    z-index: 1;
+    animation: glowPulse 6s ease-in-out infinite;
+}
+
+.rotating-text {
+    position: absolute;
+    width: 390px;
+    height: 390px;
+    border: 1px solid rgba(160, 160, 128, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 8px;
+    color: #A0A080;
+    font-size: 9px;
+    letter-spacing: 5px;
+    animation: rotateText 25s linear infinite;
+    z-index: 1;
+}
+
+.album-title {
+    color: #C0C0A0;
+    font-size: clamp(55px, 9vw, 100px);
+    font-weight: normal;
+    letter-spacing: 18px;
+    margin-top: 45px;
+    z-index: 2;
+    animation: titleReveal 2s ease forwards;
+}
+
+.album-subtitle {
+    color: #647586;
+    font-size: 10px;
+    letter-spacing: 6px;
+    margin-top: 10px;
+    z-index: 2;
+}
+
+/* ANIMATIONS */
+
+@keyframes albumFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes rotateText {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE SIZING */
+
+@media (max-width: 600px) {
+    .album-container {
+        width: 240px;
+        height: 240px;
+    }
+
+    .rotating-text {
+        width: 290px;
+        height: 290px;
+        font-size: 7px;
+    }
+
+    .album-label {
+        letter-spacing: 3px;
+        text-align: center;
+    }
