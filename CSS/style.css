@@ -15,6 +15,38 @@
     box-sizing: border-box;
 }
 
+/* EON ATMOSPHERIC BACKGROUND */
+
+body {
+    position: relative;
+    isolation: isolate;
+
+    background-color: #151510;
+
+    background-image:
+        linear-gradient(
+            rgba(21, 21, 16, 0.72),
+            rgba(21, 21, 16, 0.85)
+        ),
+        linear-gradient(
+            rgba(96, 96, 64, 0.25),
+            rgba(48, 48, 32, 0.35)
+        ),
+        url("../images/background image.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    color: #C0C0A0;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+
+    font-family: Georgia, serif;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-y: auto;
@@ -120,7 +152,7 @@ body {
     position: relative;
     overflow: hidden;
     padding: 80px 20px;
-    background: #151510;
+    background: transparent;
 }
 
 .album-label {
@@ -346,4 +378,20 @@ body {
     .artist-statement {
         padding: 40px 0;
     }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+
+    background: radial-gradient(
+        circle at 50% 45%,
+        transparent 20%,
+        rgba(21, 21, 16, 0.35) 100%
+    );
+
+    mix-blend-mode: multiply;
 }
