@@ -453,3 +453,114 @@ body::after {
         letter-spacing: 4px;
     }
 }
+
+/* WHO IS EON */
+
+.who-is-eon {
+    text-align: center;
+    padding: 100px 20px 40px;
+    overflow: hidden;
+}
+
+.about-eyebrow {
+    color: #647586;
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.who-is-eon h1 {
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 6vw, 70px);
+    font-weight: normal;
+    letter-spacing: 7px;
+    margin-bottom: 30px;
+}
+
+.eon-portrait-scene {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 550px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-symbol-bg {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    opacity: 0.10;
+    z-index: 0;
+}
+
+.artist-portrait {
+    position: relative;
+    z-index: 2;
+    width: 270px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 50% 50% 45% 45%;
+    animation: portraitFloat 5s ease-in-out infinite;
+    box-shadow: 0 0 50px rgba(96, 96, 64, 0.25);
+}
+
+.illustrated-hands {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    width: 90%;
+    max-width: 500px;
+    overflow: visible;
+}
+
+.orbit-text {
+    position: absolute;
+    z-index: 4;
+    width: 430px;
+    height: 430px;
+    border: 1px solid rgba(160, 160, 128, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    animation: orbitRotate 25s linear infinite;
+}
+
+.orbit-text span {
+    color: #A0A080;
+    font-size: 9px;
+    letter-spacing: 4px;
+    white-space: nowrap;
+    margin-top: -7px;
+}
+
+@keyframes portraitFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes orbitRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+    .eon-portrait-scene {
+        height: 400px;
+    }
+
+    .artist-portrait {
+        width: 190px;
+        height: 250px;
+    }
+
+    .orbit-text {
+        width: 300px;
+        height: 300px;
+    }
+}
