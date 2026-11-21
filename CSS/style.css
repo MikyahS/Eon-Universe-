@@ -266,3 +266,81 @@ body {
         letter-spacing: 3px;
         text-align: center;
     }
+
+    /* EON UNIVERSE STORY */
+
+.universe-story {
+    width: 85%;
+    max-width: 1000px;
+    margin: 100px auto;
+    color: #C0C0A0;
+}
+
+.story-intro,
+.story-description {
+    max-width: 700px;
+    margin-bottom: 130px;
+}
+
+.story-intro {
+    margin-left: auto;
+}
+
+.story-number {
+    display: block;
+    color: #647586;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.story-intro p,
+.story-description p {
+    font-size: clamp(19px, 2.5vw, 27px);
+    line-height: 1.8;
+    font-weight: normal;
+}
+
+.story-description {
+    margin-right: auto;
+}
+
+.artist-statement {
+    border-top: 1px solid #606040;
+    border-bottom: 1px solid #606040;
+    padding: 65px 0;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.artist-statement blockquote {
+    font-family: Georgia, serif;
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.9;
+    font-style: italic;
+    color: #A0A080;
+}
+
+.artist-signature {
+    text-align: right;
+    color: #647586;
+    letter-spacing: 3px;
+    margin-top: 35px;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .universe-story {
+        width: 90%;
+        margin: 70px auto;
+    }
+
+    .story-intro,
+    .story-description {
+        margin-bottom: 80px;
+    }
+
+    .artist-statement {
+        padding: 40px 0;
+    }
+}
