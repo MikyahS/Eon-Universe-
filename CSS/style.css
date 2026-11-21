@@ -395,3 +395,61 @@ body::after {
 
     mix-blend-mode: multiply;
 }
+
+/* SHORT FILM PAGE */
+
+.film-screening {
+    width: 85%;
+    max-width: 1100px;
+    margin: 120px auto;
+    text-align: center;
+}
+
+.film-label {
+    color: #647586;
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+.film-title {
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 6vw, 70px);
+    font-weight: normal;
+    letter-spacing: 8px;
+    margin-bottom: 45px;
+}
+
+.film-container {
+    width: 100%;
+    border: 1px solid #606040;
+    padding: 8px;
+    background: rgba(21, 21, 16, 0.7);
+}
+
+.short-film-video {
+    display: block;
+    width: 100%;
+    max-height: 650px;
+    background: #151510;
+    object-fit: contain;
+}
+
+.film-caption {
+    color: #A0A080;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+    .film-screening {
+        width: 92%;
+        margin: 80px auto;
+    }
+
+    .film-title {
+        letter-spacing: 4px;
+    }
+}
