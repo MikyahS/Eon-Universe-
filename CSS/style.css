@@ -497,3 +497,68 @@ body {
         transform: scale(0.7);
     }
 }
+
+
+/* EON ROSE VINES */
+
+.story-intro,
+.story-description,
+.artist-statement {
+    position: relative;
+    isolation: isolate;
+}
+
+.rose-vine {
+    position: absolute;
+    width: 65%;
+    height: 100%;
+    min-height: 280px;
+    top: -25px;
+    left: -15%;
+    z-index: 0;
+    overflow: visible;
+    opacity: 0.75;
+    pointer-events: none;
+    animation: roseVineSway 9s ease-in-out infinite;
+}
+
+/* Keep writing above the vines */
+
+.story-intro > *,
+.story-description > *,
+.artist-statement > * {
+    position: relative;
+    z-index: 2;
+}
+
+.story-description .rose-vine {
+    left: auto;
+    right: -15%;
+    transform: scaleX(-1);
+    animation-delay: 2s;
+}
+
+.artist-statement .rose-vine {
+    left: -5%;
+    width: 110%;
+    animation-delay: 4s;
+}
+
+@keyframes roseVineSway {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -5px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .rose-vine {
+        width: 90%;
+        opacity: 0.4;
+    }
+}
