@@ -105,3 +105,31 @@ body {
     background-color: #606040;
     margin-top: 35px;
 }
+
+/* IMAGE GALLERY */
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    height: 650px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.image-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    will-change: transform;
+}
+
+.image-column img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #606040;
+}
