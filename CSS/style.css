@@ -347,3 +347,71 @@ body {
         padding: 40px 0;
     }
 }
+
+/* FLOATING CHECKERBOARD SHELVES */
+
+.story-intro,
+.story-description,
+.artist-statement {
+    position: relative;
+    isolation: isolate;
+    padding-bottom: 100px;
+}
+
+.story-intro::after,
+.story-description::after,
+.artist-statement::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: -8%;
+    width: 116%;
+    height: 110px;
+
+    background-color: #151510;
+
+    background-image:
+        linear-gradient(45deg, #606040 25%, transparent 25%,
+        transparent 75%, #606040 75%),
+        linear-gradient(45deg, #606040 25%, transparent 25%,
+        transparent 75%, #606040 75%);
+
+    background-size: 36px 36px;
+    background-position: 0 0, 18px 18px;
+
+    opacity: 0.65;
+
+    transform: perspective(450px) rotateX(58deg);
+    transform-origin: bottom;
+
+    filter: drop-shadow(0 12px 15px rgba(0, 0, 0, 0.5));
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* FLOATING MOVEMENT */
+
+.story-intro::after,
+.story-description::after,
+.artist-statement::after {
+    animation: shelfFloat 6s ease-in-out infinite;
+}
+
+.story-description::after {
+    animation-delay: 1.5s;
+}
+
+.artist-statement::after {
+    animation-delay: 3s;
+}
+
+@keyframes shelfFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+}
