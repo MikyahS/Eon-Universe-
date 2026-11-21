@@ -415,3 +415,85 @@ body {
         translate: 0 -10px;
     }
 }
+
+/* EON — DELICATE GROWING VINES */
+
+.story-intro,
+.story-description,
+.artist-statement {
+    overflow: visible;
+}
+
+/* Main vine stems */
+
+.story-intro::before,
+.story-description::before,
+.artist-statement::before {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 190px;
+    pointer-events: none;
+    z-index: 1;
+
+    background:
+        radial-gradient(ellipse 8px 4px at 22px 25px,
+            #606040 95%, transparent 100%),
+        radial-gradient(ellipse 9px 4px at 52px 55px,
+            #606040 95%, transparent 100%),
+        radial-gradient(ellipse 8px 4px at 18px 90px,
+            #606040 95%, transparent 100%),
+        radial-gradient(ellipse 9px 4px at 48px 125px,
+            #606040 95%, transparent 100%),
+        radial-gradient(ellipse 8px 4px at 15px 155px,
+            #606040 95%, transparent 100%);
+
+    opacity: 0.65;
+    animation: vineSway 7s ease-in-out infinite;
+}
+
+/* Position the vines */
+
+.story-intro::before {
+    left: -65px;
+    bottom: 55px;
+    border-left: 1px solid #606040;
+    border-radius: 50%;
+}
+
+.story-description::before {
+    right: -65px;
+    bottom: 45px;
+    border-right: 1px solid #606040;
+    border-radius: 50%;
+    animation-delay: 2s;
+}
+
+.artist-statement::before {
+    left: -65px;
+    top: 20px;
+    border-left: 1px solid #606040;
+    border-radius: 50%;
+    animation-delay: 1s;
+}
+
+@keyframes vineSway {
+    0%, 100% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+/* Keep the vines subtle on smaller screens */
+
+@media (max-width: 600px) {
+    .story-intro::before,
+    .story-description::before,
+    .artist-statement::before {
+        opacity: 0.35;
+        transform: scale(0.7);
+    }
+}
