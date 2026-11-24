@@ -1,16 +1,19 @@
-
 document.addEventListener("DOMContentLoaded", function () {
+
+    // =====================================
+    // VENUE CAROUSEL
+    // =====================================
 
     const venueCards = document.querySelectorAll(".photoBox");
     const columns = [[], [], []];
     const columnTweens = [[], [], []];
 
-    // ARRANGE VENUES INTO THREE COLUMNS
+    // Arrange venues into three columns
     venueCards.forEach((card, index) => {
         columns[index % 3].push(card);
     });
 
-    // START THE CAROUSEL
+    // Start carousel
     if (window.gsap && venueCards.length) {
 
         columns.forEach((cards, columnIndex) => {
@@ -53,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // PAUSE THE WHOLE COLUMN ON HOVER
+        // Pause column and enlarge card on hover
         venueCards.forEach(card => {
 
             card.addEventListener("mouseenter", function () {
@@ -99,13 +102,48 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
+    // =====================================
     // TICKET POPUP
+    // =====================================
+
     const ticketModal = document.getElementById("ticketModal");
     const closeTicket = document.getElementById("closeTicket");
+
     const selectedVenue = document.getElementById("selectedVenue");
     const selectedCity = document.getElementById("selectedCity");
 
-    // OPEN POPUP WHEN BUY A TICKET IS CLICKED
+    const reservationScreen = document.getElementById("reservationScreen");
+    const paymentScreen = document.getElementById("paymentScreen");
+    const paymentSuccess = document.getElementById("paymentSuccess");
+
+    const purchaseButton = document.getElementById("purchaseTicket");
+    const paymentForm = document.getElementById("paymentForm");
+    const finishCheckout = document.getElementById("finishCheckout");
+
+
+    // Reset popup to the first screen
+    function resetCheckout() {
+
+        if (reservationScreen) {
+            reservationScreen.style.display = "flex";
+        }
+
+        if (paymentScreen) {
+            paymentScreen.classList.remove("active");
+        }
+
+        if (paymentSuccess) {
+            paymentSuccess.classList.remove("active");
+        }
+
+        if (paymentForm) {
+            paymentForm.reset();
+        }
+    }
+
+
+    // Open popup when BUY A TICKET is clicked
     document.addEventListener("click", function (event) {
 
         const button = event.target.closest(".buy-ticket");
@@ -125,82 +163,97 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedCity.textContent =
             card.querySelector(".venue-info p").textContent;
 
+        resetCheckout();
+
         ticketModal.classList.add("active");
     });
 
 
-// MOVE TO PAYMENT SCREEN
-const reservationScreen =
-    document.getElementById("reservationScreen");
+    // =====================================
+    // MOVE TO PAYMENT SCREEN
+    // =====================================
 
-const paymentScreen =
-    document.getElementById("paymentScreen");
+    if (purchaseButton) {
 
-const paymentSuccess =
-    document.getElementById("paymentSuccess");
+        purchaseButton.addEventListener("click", function () {
 
-const purchaseButton =
-    document.getElementById("purchaseTicket");
+            const quantity = document.getElementById("ticketQuantity");
 
-purchaseButton.addEventListener("click", function () {
+            if (!quantity || !quantity.value) {
+                alert("Please select your ticket quantity.");
+                return;
+            }
 
-    document.getElementById("paymentVenue").textContent =
-        document.getElementById("selectedVenue").textContent;
+            document.getElementById("paymentVenue").textContent =
+                selectedVenue.textContent;
 
-    document.getElementById("paymentCity").textContent =
-        document.getElementById("selectedCity").textContent;
+            document.getElementById("paymentCity").textContent =
+                selectedCity.textContent;
 
-    document.getElementById("paymentQuantity").textContent =
-        "QUANTITY: " +
-        document.getElementById("ticketQuantity").value;
+            document.getElementById("paymentQuantity").textContent =
+                "QUANTITY: " + quantity.value;
 
-    reservationScreen.style.display = "none";
-    paymentScreen.classList.add("active");
-
-});
-
-// DEMO PAYMENT SUBMISSION
-document.getElementById("paymentForm")
-    .addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        paymentScreen.classList.remove("active");
-        paymentSuccess.classList.add("active");
-
-    });
-
-// CLOSE CHECKOUT
-document.getElementById("finishCheckout")
-    .addEventListener("click", function() {
-
-        ticketModal.classList.remove("active");
-
-        paymentSuccess.classList.remove("active");
-        reservationScreen.style.display = "flex";
-
-        document.getElementById("paymentForm").reset();
-
-    });
+            reservationScreen.style.display = "none";
+            paymentScreen.classList.add("active");
+        });
+    }
 
 
+    // =====================================
+    // SUBMIT PAYMENT
+    // =====================================
+
+    if (paymentForm) {
+
+        paymentForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            paymentScreen.classList.remove("active");
+            paymentSuccess.classList.add("active");
+        });
+    }
+
+
+    // =====================================
     // CLOSE POPUP
+    // =====================================
+
     if (closeTicket && ticketModal) {
 
         closeTicket.addEventListener("click", function () {
             ticketModal.classList.remove("active");
+            resetCheckout();
         });
 
         ticketModal.addEventListener("click", function (event) {
+
             if (event.target === ticketModal) {
                 ticketModal.classList.remove("active");
+                resetCheckout();
             }
         });
 
         document.addEventListener("keydown", function (event) {
+
             if (event.key === "Escape") {
                 ticketModal.classList.remove("active");
+                resetCheckout();
             }
+        });
+    }
+
+
+    // =====================================
+    // FINISH CHECKOUT
+    // =====================================
+
+    if (finishCheckout) {
+
+        finishCheckout.addEventListener("click", function () {
+
+            ticketModal.classList.remove("active");
+            resetCheckout();
         });
     }
 
