@@ -560,3 +560,18 @@ body.about-page {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+.second-portrait-section {
+    width: 85%;
+    max-width: 900px;
+    margin: 150px auto 120px;
+    text-align: center;
+}
+
+.second-portrait {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    margin: 40px auto 0;
+}
