@@ -1147,3 +1147,20 @@ body.about-page .top-nav {
 }
 
 
+/* TICKET PAGE BACKGROUND */
+body.ticket-page {
+    background-color: #151510;
+
+    background-image:
+        linear-gradient(
+            rgba(21, 21, 16, 0.55),
+            rgba(21, 21, 16, 0.75)
+        ),
+        url("../images/BrandSymbol.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
