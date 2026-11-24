@@ -1030,3 +1030,120 @@ body.about-page .top-nav {
     color: #FFFFFF;
 }
 
+
+/* PAYMENT SCREEN */
+.payment-screen,
+.payment-success {
+    display: none;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.payment-screen.active,
+.payment-success.active {
+    display: block;
+}
+
+.payment-screen h2,
+.payment-success h2 {
+    color: #C0C0A0;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    letter-spacing: 4px;
+    font-size: 25px;
+}
+
+.payment-subtitle {
+    text-align: center;
+    color: #647586;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.payment-summary {
+    background: rgba(96, 96, 64, 0.2);
+    border: 1px solid #606040;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.payment-summary span {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #A0A080;
+}
+
+.payment-summary h3 {
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.payment-summary p {
+    color: #647586;
+    font-size: 11px;
+}
+
+#paymentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#paymentForm label {
+    color: #A0A080;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+#paymentForm input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    background: #303020;
+    border: 1px solid #606040;
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+}
+
+.payment-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.payment-row > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#submitPayment,
+#finishCheckout {
+    margin-top: 20px;
+    padding: 16px;
+    background: #606040;
+    border: 1px solid #A0A080;
+    color: #C0C0A0;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+#submitPayment:hover,
+#finishCheckout:hover {
+    background: #647586;
+}
+
+.payment-success {
+    text-align: center;
+    padding: 35px 0;
+}
+
+.confirmation-message {
+    color: #A0A080;
+    line-height: 1.7;
+}
+
+
