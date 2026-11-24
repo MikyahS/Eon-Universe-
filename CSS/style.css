@@ -908,7 +908,7 @@ body.about-page .top-nav {
 .tour-flyer {
     display: block;
     width: 100%;
-    max-width: 450px;
+    max-width: 550px;
     height: auto;
     object-fit: contain;
 }
