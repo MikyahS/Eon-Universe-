@@ -548,11 +548,14 @@ body::after {
 }
 
 body.about-page {
+    background-color: #151510;
+
     background-image:
-        linear-gradient
+        linear-gradient(
             rgba(21, 21, 16, 0.55),
             rgba(21, 21, 16, 0.75)
-        url("../images/Brand_Symbol\ Identity.png");
+        ),
+        url("../images/Brand_Symbol\ Identity.png;)
 
     background-size: cover;
     background-position: center;
@@ -560,17 +563,8 @@ body.about-page {
     background-attachment: fixed;
 }
 
-.second-portrait-section {
-    width: 85%;
-    max-width: 900px;
-    margin: 150px auto 120px;
-    text-align: center;
-}
-
-.second-portrait {
-    display: block;
-    width: 100%;
-    max-width: 650px;
-    height: auto;
-    margin: 40px auto 0;
+/* Keep navigation above the background */
+body.about-page .top-nav {
+    position: relative;
+    z-index: 10;
 }
