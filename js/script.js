@@ -128,6 +128,62 @@ document.addEventListener("DOMContentLoaded", function () {
         ticketModal.classList.add("active");
     });
 
+
+// MOVE TO PAYMENT SCREEN
+const reservationScreen =
+    document.getElementById("reservationScreen");
+
+const paymentScreen =
+    document.getElementById("paymentScreen");
+
+const paymentSuccess =
+    document.getElementById("paymentSuccess");
+
+const purchaseButton =
+    document.getElementById("purchaseTicket");
+
+purchaseButton.addEventListener("click", function () {
+
+    document.getElementById("paymentVenue").textContent =
+        document.getElementById("selectedVenue").textContent;
+
+    document.getElementById("paymentCity").textContent =
+        document.getElementById("selectedCity").textContent;
+
+    document.getElementById("paymentQuantity").textContent =
+        "QUANTITY: " +
+        document.getElementById("ticketQuantity").value;
+
+    reservationScreen.style.display = "none";
+    paymentScreen.classList.add("active");
+
+});
+
+// DEMO PAYMENT SUBMISSION
+document.getElementById("paymentForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        paymentScreen.classList.remove("active");
+        paymentSuccess.classList.add("active");
+
+    });
+
+// CLOSE CHECKOUT
+document.getElementById("finishCheckout")
+    .addEventListener("click", function() {
+
+        ticketModal.classList.remove("active");
+
+        paymentSuccess.classList.remove("active");
+        reservationScreen.style.display = "flex";
+
+        document.getElementById("paymentForm").reset();
+
+    });
+
+
     // CLOSE POPUP
     if (closeTicket && ticketModal) {
 
