@@ -454,6 +454,114 @@ body::after {
     }
 }
 
+/* EON UNIVERSE CONTACT SECTIONS */
+
+.contact-section,
+.collaboration-section {
+    width: 85%;
+    max-width: 750px;
+    margin: 130px auto;
+    padding: 65px 45px;
+    text-align: center;
+    background: rgba(21, 21, 16, 0.45);
+    border-top: 1px solid rgba(160, 160, 128, 0.4);
+    border-bottom: 1px solid rgba(160, 160, 128, 0.4);
+}
+
+.contact-section h2,
+.collaboration-section h2 {
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 4vw, 45px);
+    font-weight: normal;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.contact-intro {
+    color: #A0A080;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 550px;
+    margin: 0 auto 45px;
+}
+
+.artist-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 15px;
+}
+
+.artist-form label {
+    color: #A0A080;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 15px;
+}
+
+.artist-form input,
+.artist-form textarea,
+.artist-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    background: rgba(21, 21, 16, 0.65);
+    border: 1px solid #606040;
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.artist-form input:focus,
+.artist-form textarea:focus,
+.artist-form select:focus {
+    border-color: #A0A080;
+}
+
+.artist-form textarea {
+    resize: vertical;
+}
+
+.artist-form input::placeholder,
+.artist-form textarea::placeholder {
+    color: #858575;
+}
+
+.artist-form select option {
+    background: #151510;
+    color: #C0C0A0;
+}
+
+.artist-form button {
+    margin-top: 25px;
+    padding: 16px;
+    background: transparent;
+    border: 1px solid #A0A080;
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.artist-form button:hover {
+    background: #A0A080;
+    color: #151510;
+}
+
+@media (max-width: 600px) {
+    .contact-section,
+    .collaboration-section {
+        width: 90%;
+        padding: 45px 22px;
+        margin: 80px auto;
+    }
+}
+
 /* SHORT FILM PAGE BACKGROUND */
 
 body.shortfilm-page {
