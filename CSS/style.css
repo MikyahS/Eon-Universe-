@@ -454,6 +454,30 @@ body::after {
     }
 }
 
+/* SHORT FILM PAGE BACKGROUND */
+
+body.shortfilm-page {
+    background-color: #151510;
+
+    background-image:
+        linear-gradient(
+            rgba(21, 21, 16, 0.45),
+            rgba(21, 21, 16, 0.75)
+        ),
+        url("../images/ShortFilm.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Keep navigation visible */
+body.shortfilm-page .top-nav {
+    position: relative;
+    z-index: 10;
+}
+
 /* WHO IS EON */
 
 .who-is-eon {
