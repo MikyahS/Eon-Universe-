@@ -40,17 +40,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // CONTINUOUS DOWNWARD MOVEMENT
             const movement = gsap.to(card, {
-                y: "+=750",
-                duration: speed,
-                ease: "none",
-                repeat: -1,
-                modifiers: {
-                    y: gsap.utils.unitize(value => {
-                        const position = parseFloat(value);
-                        return ((position % 750) + 750) % 750;
-                    })
-                }
-            });
+            y: `+=${950 + spacing}`,
+            duration: speed,
+            ease: "none",
+            repeat: -1,
+            modifiers: {
+         y: gsap.utils.unitize(value => {
+            const position = parseFloat(value);
+            return ((position % (950 + spacing)) + (950 + spacing)) % (950 + spacing);
+        })
+    }
+});
 
             columnTweens[columnIndex] = movement;
         });
