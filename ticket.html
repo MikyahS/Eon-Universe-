@@ -195,6 +195,76 @@
     </div>
 </div>
 
+
+<!-- PAYMENT SCREEN -->
+<div class="payment-screen" id="paymentScreen">
+
+    <p class="film-label">EON UNIVERSE / SECURE CHECKOUT</p>
+
+    <h2>PAYMENT DETAILS</h2>
+    <p class="payment-subtitle">COMPLETE YOUR RESERVATION</p>
+
+    <div class="payment-summary">
+        <span>YOUR DESTINATION</span>
+        <h3 id="paymentVenue">SELECTED VENUE</h3>
+        <p id="paymentCity"></p>
+        <p id="paymentQuantity"></p>
+    </div>
+
+    <form id="paymentForm">
+
+        <label for="cardName">CARDHOLDER NAME</label>
+        <input id="cardName" type="text"
+            placeholder="Name on card" autocomplete="cc-name" required>
+
+        <label for="cardNumber">CARD NUMBER</label>
+        <input id="cardNumber" type="text"
+            placeholder="0000 0000 0000 0000"
+            inputmode="numeric" autocomplete="cc-number"
+            maxlength="19" required>
+
+        <div class="payment-row">
+            <div>
+                <label for="cardExpiry">EXPIRATION</label>
+                <input id="cardExpiry" type="text"
+                    placeholder="MM/YY" autocomplete="cc-exp"
+                    maxlength="5" required>
+            </div>
+
+            <div>
+                <label for="cardCvv">SECURITY CODE</label>
+                <input id="cardCvv" type="password"
+                    placeholder="CVV" inputmode="numeric"
+                    autocomplete="cc-csc" maxlength="4" required>
+            </div>
+        </div>
+
+        <label for="billingZip">BILLING ZIP CODE</label>
+        <input id="billingZip" type="text"
+            placeholder="ZIP code" autocomplete="postal-code"
+            required>
+
+        <button type="submit" id="submitPayment">
+            SUBMIT PAYMENT
+        </button>
+
+    </form>
+</div>
+
+<!-- PAYMENT CONFIRMATION -->
+<div class="payment-success" id="paymentSuccess">
+    <p class="film-label">EON UNIVERSE / RESERVATION</p>
+    <h2>THANK YOU</h2>
+    <p>Your checkout demonstration is complete.</p>
+    <p class="confirmation-message">
+        Your reservation is awaiting secure payment processing.
+    </p>
+    <button type="button" id="finishCheckout">
+        CLOSE
+    </button>
+</div>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src=".//js/script.js"></script>
 
