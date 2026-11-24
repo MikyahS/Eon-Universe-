@@ -103,3 +103,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+// TICKET POPUP
+const ticketModal = document.getElementById("ticketModal");
+const closeTicket = document.getElementById("closeTicket");
+const selectedVenue = document.getElementById("selectedVenue");
+const selectedCity = document.getElementById("selectedCity");
+
+document.querySelectorAll(".buy-ticket").forEach(button => {
+
+    button.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        const card = button.closest(".photoBox");
+
+        selectedVenue.textContent =
+            card.querySelector("h2").textContent;
+
+        selectedCity.textContent =
+            card.querySelector(".venue-info p").textContent;
+
+        ticketModal.classList.add("active");
+    });
+
+});
+
+closeTicket.addEventListener("click", function () {
+    ticketModal.classList.remove("active");
+});
+
+ticketModal.addEventListener("click", function (event) {
+    if (event.target === ticketModal) {
+        ticketModal.classList.remove("active");
+    }
+});
