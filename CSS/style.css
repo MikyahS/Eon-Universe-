@@ -568,3 +568,98 @@ body.about-page .top-nav {
     position: relative;
     z-index: 10;
 }
+
+
+/* SYLVIA'S PHOTO NOTES */
+
+.memory-section {
+    width: 90%;
+    max-width: 1150px;
+    margin: 130px auto 160px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.memory-section h2 {
+    color: #C0C0A0;
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: normal;
+    letter-spacing: 5px;
+    margin-bottom: 80px;
+}
+
+.memory-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+    align-items: center;
+}
+
+.memory-card {
+    background: #E9E4D9;
+    padding: 14px 14px 25px;
+    color: #302E29;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    transition: transform 0.4s ease;
+}
+
+.memory-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 4.5;
+    object-fit: cover;
+}
+
+.memory-note {
+    padding: 20px 8px 5px;
+}
+
+.note-label {
+    font-family: Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #777568;
+    margin-bottom: 12px;
+}
+
+.note-caption {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #34312D;
+}
+
+.card-one {
+    transform: rotate(-3deg);
+}
+
+.card-two {
+    transform: rotate(2deg);
+}
+
+.card-three {
+    transform: rotate(-2deg);
+}
+
+.memory-card:hover {
+    transform: translateY(-10px) rotate(0deg);
+}
+
+@media (max-width: 750px) {
+    .memory-gallery {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: 0 auto;
+        gap: 45px;
+    }
+
+    .memory-card {
+        transform: rotate(0deg);
+    }
+
+    .memory-section {
+        margin: 90px auto;
+    }
+}
