@@ -42,5 +42,87 @@
 
     </section>
 
+
+<!-- A NOTE TO SYLVIA -->
+
+<section class="contact-section">
+
+    <p class="film-label">EON UNIVERSE / CORRESPONDENCE</p>
+
+    <h2>LEAVE A NOTE FOR SYLVIA</h2>
+
+    <p class="contact-intro">
+        Every voice has a place in this universe.
+        Leave a little something for Sylvia to read.
+    </p>
+
+    <form class="artist-form" action="YOUR_FORM_ENDPOINT" method="POST">
+
+        <label for="note-name">YOUR NAME</label>
+        <input type="text" id="note-name" name="name"
+               placeholder="What should I call you?" required>
+
+        <label for="note-email">YOUR EMAIL</label>
+        <input type="email" id="note-email" name="email"
+               placeholder="Your email address">
+
+        <label for="artist-note">YOUR NOTE</label>
+        <textarea id="artist-note" name="message"
+                  placeholder="Write something for Sylvia..."
+                  rows="6" required></textarea>
+
+        <button type="submit">SEND YOUR NOTE</button>
+
+    </form>
+
+</section>
+
+
+<!-- BECOME PART OF EON -->
+
+<section class="collaboration-section">
+
+    <p class="film-label">EON UNIVERSE / OPEN INVITATION</p>
+
+    <h2>BE PART OF THE UNIVERSE</h2>
+
+    <p class="contact-intro">
+        Have a creative idea? Want to collaborate?
+        Have a song you think belongs in this universe?
+        We'd love to hear from you.
+    </p>
+
+    <form class="artist-form" action="YOUR_FORM_ENDPOINT" method="POST">
+
+        <label for="collab-name">YOUR NAME</label>
+        <input type="text" id="collab-name" name="name"
+               placeholder="Your name" required>
+
+        <label for="collab-email">YOUR EMAIL</label>
+        <input type="email" id="collab-email" name="email"
+               placeholder="Your email address" required>
+
+        <label for="collab-type">WHAT ARE YOU INTERESTED IN?</label>
+        <select id="collab-type" name="interest" required>
+            <option value="">Choose an option</option>
+            <option value="Creative collaboration">Creative collaboration</option>
+            <option value="Joining the team">Joining the team</option>
+            <option value="Music suggestion">Music suggestion</option>
+            <option value="Visual arts">Visual arts</option>
+            <option value="Other">Something else</option>
+        </select>
+
+         <label for="collab-message">TELL US MORE</label>
+        <textarea id="collab-message" name="message"
+                  placeholder="Share your ideas, suggestions, or a little about yourself..."
+                  rows="6" required></textarea>
+
+        <button type="submit">SEND YOUR MESSAGE</button>
+
+    </form>
+
+</section>
+
+
 </body>
 </html>
