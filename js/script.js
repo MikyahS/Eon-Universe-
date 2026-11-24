@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const columnPositions = [-210, 0, 210];
         const speed = [28, 36, 44][columnIndex];
-        const spacing = 750 / cards.length;
-
+        const spacing = 950 / cards.length;
         cards.forEach((card, index) => {
 
             gsap.set(card, {
@@ -32,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 x: columnPositions[columnIndex],
                 xPercent: -50,
                 y: index * spacing,
-                width: 400,
-                height: 640,
+                width: 460,
+                height: 760,
                 scale: 0.5,
                 zIndex: 1,
                 opacity: 1
