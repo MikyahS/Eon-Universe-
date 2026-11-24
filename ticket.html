@@ -1,13 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EON UNIVERSE | TICKET PAGE</title>
 
-    <link rel="stylesheet" href=".//CSS/style.css">
+    <title>EON UNIVERSE | TICKETS</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
+
 <body class="ticket-page">
 
     <!-- NAVIGATION -->
@@ -28,8 +31,12 @@
     <!-- TOUR FLYER -->
     <section class="tour-intro">
 
+        <!-- Replace this filename with your actual flyer filename -->
         <img
-            src="./images/Tour Flyer.png" alt="EON Universe Tour Flyer" class="tour-flyer">
+            src="images/Your Flyer File Name.png"
+            alt="EON Universe Tour Flyer"
+            class="tour-flyer"
+        >
 
     </section>
 
@@ -47,16 +54,23 @@
 
             <div class="mainBoxes">
 
+
                 <!-- BIRMINGHAM -->
                 <div class="photoBox"
                      style="background-image: url('.//images/NinjaOne.jpg');">
 
                     <div class="venue-info">
+
                         <p>BIRMINGHAM, AL</p>
+
                         <h2>NINJA ONE</h2>
+
+                        <span>05.26.26</span>
+
                         <button type="button" class="buy-ticket">
-                        BUY A TICKET ↗
+                            BUY A TICKET ↗
                         </button>
+
                     </div>
 
                 </div>
@@ -67,9 +81,17 @@
                      style="background-image: url('.//images/NightTech.jpg');">
 
                     <div class="venue-info">
+
                         <p>PHOENIX, AZ</p>
+
                         <h2>NIGHT TECH</h2>
-                        <button class="buy-ticket">BUY A TICKET ↗</button>
+
+                        <span>05.30.26</span>
+
+                        <button type="button" class="buy-ticket">
+                            BUY A TICKET ↗
+                        </button>
+
                     </div>
 
                 </div>
@@ -80,9 +102,17 @@
                      style="background-image: url('.//images/ComfortLounge.jpg');">
 
                     <div class="venue-info">
+
                         <p>LOS ANGELES, CA</p>
+
                         <h2>COMFORT LOUNGE</h2>
-                       <button class="buy-ticket">BUY A TICKET ↗</button>
+
+                        <span>06.10.26</span>
+
+                        <button type="button" class="buy-ticket">
+                            BUY A TICKET ↗
+                        </button>
+
                     </div>
 
                 </div>
@@ -93,9 +123,17 @@
                      style="background-image: url('.//images/FijiWaters.jpg');">
 
                     <div class="venue-info">
+
                         <p>TRINIDAD, CO</p>
+
                         <h2>FIJI WATERS</h2>
-                        <button class="buy-ticket">BUY A TICKET ↗</button>
+
+                        <span>06.24.26</span>
+
+                        <button type="button" class="buy-ticket">
+                            BUY A TICKET ↗
+                        </button>
+
                     </div>
 
                 </div>
@@ -106,9 +144,17 @@
                      style="background-image: url('.//images/StaplesCenter.jpg');">
 
                     <div class="venue-info">
+
                         <p>MIAMI, FL</p>
+
                         <h2>STAPLES CENTER</h2>
-                        <button class="buy-ticket">BUY A TICKET ↗</button>
+
+                        <span>07.01.26</span>
+
+                        <button type="button" class="buy-ticket">
+                            BUY A TICKET ↗
+                        </button>
+
                     </div>
 
                 </div>
@@ -119,9 +165,17 @@
                      style="background-image: url('.//images/RushPlex.jpg');">
 
                     <div class="venue-info">
+
                         <p>ATLANTA, GA</p>
+
                         <h2>RUSH PLEX</h2>
-                        <button class="buy-ticket">BUY A TICKET ↗</button>
+
+                        <span>07.18.26</span>
+
+                        <button type="button" class="buy-ticket">
+                            BUY A TICKET ↗
+                        </button>
+
                     </div>
 
                 </div>
@@ -132,9 +186,17 @@
                      style="background-image: url('.//images/TMobileCenter.jpg');">
 
                     <div class="venue-info">
+
                         <p>KANSAS CITY, MO</p>
+
                         <h2>T-MOBILE CENTER</h2>
-                        <button class="buy-ticket">BUY A TICKET ↗</button>
+
+                        <span>07.30.26</span>
+
+                        <button type="button" class="buy-ticket">
+                            BUY A TICKET ↗
+                        </button>
+
                     </div>
 
                 </div>
@@ -142,131 +204,253 @@
 
                 <!-- NEW YORK -->
                 <div class="photoBox"
-                     style="background-image: url('.//images/MadisonSqaureGarden.jpg');">
+                     style="background-image: url('images/MadisonSqaureGarden.jpg');">
 
                     <div class="venue-info">
+
                         <p>MANHATTAN, NY</p>
+
                         <h2>MADISON SQUARE GARDEN</h2>
-                       <button type="button" class="buy-ticket">BUY A TICKET ↗
+
+                        <span>08.05.26</span>
+
+                        <button type="button" class="buy-ticket">
+                            BUY A TICKET ↗
                         </button>
+
                     </div>
+
                 </div>
+
+
             </div>
-         </div>
-     </section>
+        </div>
 
-     <!-- TICKET POPUP -->
-    <div class="ticket-form" id="reservationScreen">
-    <div class="ticket-popup">
+    </section>
 
-        <button type="button" class="close-ticket" id="closeTicket">
-            &times;
-        </button>
 
-        <p class="film-label">EON UNIVERSE / TICKET RESERVATION</p>
 
-        <h2 id="selectedVenue">SELECTED VENUE</h2>
-        <p id="selectedCity"></p>
+    <!-- ================================= -->
+    <!-- TICKET RESERVATION POPUP -->
+    <!-- ================================= -->
 
-        <div class="ticket-form">
+    <div class="ticket-modal" id="ticketModal">
 
-            <label for="ticketQuantity">TICKET QUANTITY</label>
-            <select id="ticketQuantity">
-                <option value="1">1 Ticket</option>
-                <option value="2">2 Tickets</option>
-                <option value="3">3 Tickets</option>
-                <option value="4">4 Tickets</option>
-                <option value="5">5 Tickets</option>
-                <option value="6">6 Tickets</option>
-            </select>
+        <div class="ticket-popup">
 
-            <label for="seatNumber">SEAT NUMBER</label>
-            <input
-                type="text"
-                id="seatNumber"
-                placeholder="Enter your seat number"
-            >
-
-            <button type="button" id="purchaseTicket">
-                CONTINUE TO PURCHASE
+            <button
+                type="button"
+                class="close-ticket"
+                id="closeTicket">
+                &times;
             </button>
 
-        </div>
-    </div>
-</div>
+
+            <!-- RESERVATION SCREEN -->
+            <div class="ticket-form" id="reservationScreen">
+
+                <p class="film-label">
+                    EON UNIVERSE / TICKET RESERVATION
+                </p>
+
+                <h2 id="selectedVenue">SELECTED VENUE</h2>
+
+                <p id="selectedCity"></p>
 
 
-<!-- PAYMENT SCREEN -->
-<div class="payment-screen" id="paymentScreen">
+                <label for="ticketQuantity">
+                    TICKET QUANTITY
+                </label>
 
-    <p class="film-label">EON UNIVERSE / SECURE CHECKOUT</p>
+                <select id="ticketQuantity">
 
-    <h2>PAYMENT DETAILS</h2>
-    <p class="payment-subtitle">COMPLETE YOUR RESERVATION</p>
+                    <option value="1">1 Ticket</option>
+                    <option value="2">2 Tickets</option>
+                    <option value="3">3 Tickets</option>
+                    <option value="4">4 Tickets</option>
+                    <option value="5">5 Tickets</option>
+                    <option value="6">6 Tickets</option>
 
-    <div class="payment-summary">
-        <span>YOUR DESTINATION</span>
-        <h3 id="paymentVenue">SELECTED VENUE</h3>
-        <p id="paymentCity"></p>
-        <p id="paymentQuantity"></p>
-    </div>
+                </select>
 
-    <form id="paymentForm">
 
-        <label for="cardName">CARDHOLDER NAME</label>
-        <input id="cardName" type="text"
-            placeholder="Name on card" autocomplete="cc-name" required>
+                <label for="seatNumber">
+                    SEAT NUMBER
+                </label>
 
-        <label for="cardNumber">CARD NUMBER</label>
-        <input id="cardNumber" type="text"
-            placeholder="0000 0000 0000 0000"
-            inputmode="numeric" autocomplete="cc-number"
-            maxlength="19" required>
+                <input
+                    type="text"
+                    id="seatNumber"
+                    placeholder="Enter your seat number"
+                >
 
-        <div class="payment-row">
-            <div>
-                <label for="cardExpiry">EXPIRATION</label>
-                <input id="cardExpiry" type="text"
-                    placeholder="MM/YY" autocomplete="cc-exp"
-                    maxlength="5" required>
+
+                <button type="button" id="purchaseTicket">
+                    CONTINUE TO PURCHASE
+                </button>
+
             </div>
 
-            <div>
-                <label for="cardCvv">SECURITY CODE</label>
-                <input id="cardCvv" type="password"
-                    placeholder="CVV" inputmode="numeric"
-                    autocomplete="cc-csc" maxlength="4" required>
+
+
+            <!-- PAYMENT SCREEN -->
+            <div class="payment-screen" id="paymentScreen">
+
+                <p class="film-label">
+                    EON UNIVERSE / SECURE CHECKOUT
+                </p>
+
+                <h2>PAYMENT DETAILS</h2>
+
+                <p class="payment-subtitle">
+                    COMPLETE YOUR RESERVATION
+                </p>
+
+
+                <!-- ORDER SUMMARY -->
+                <div class="payment-summary">
+
+                    <span>YOUR DESTINATION</span>
+
+                    <h3 id="paymentVenue">
+                        SELECTED VENUE
+                    </h3>
+
+                    <p id="paymentCity"></p>
+
+                    <p id="paymentQuantity"></p>
+
+                </div>
+
+
+                <!-- CARD DETAILS -->
+                <form id="paymentForm">
+
+                    <label for="cardName">
+                        CARDHOLDER NAME
+                    </label>
+
+                    <input
+                        id="cardName"
+                        type="text"
+                        placeholder="Name on card"
+                        autocomplete="cc-name"
+                        required
+                    >
+
+
+                    <label for="cardNumber">
+                        CARD NUMBER
+                    </label>
+
+                    <input
+                        id="cardNumber"
+                        type="text"
+                        placeholder="0000 0000 0000 0000"
+                        inputmode="numeric"
+                        autocomplete="cc-number"
+                        maxlength="19"
+                        required
+                    >
+
+
+                    <div class="payment-row">
+
+                        <div>
+
+                            <label for="cardExpiry">
+                                EXPIRATION
+                            </label>
+
+                            <input
+                                id="cardExpiry"
+                                type="text"
+                                placeholder="MM/YY"
+                                autocomplete="cc-exp"
+                                maxlength="5"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="cardCvv">
+                                SECURITY CODE
+                            </label>
+
+                            <input
+                                id="cardCvv"
+                                type="password"
+                                placeholder="CVV"
+                                inputmode="numeric"
+                                autocomplete="cc-csc"
+                                maxlength="4"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <label for="billingZip">
+                        BILLING ZIP CODE
+                    </label>
+
+                    <input
+                        id="billingZip"
+                        type="text"
+                        placeholder="ZIP code"
+                        autocomplete="postal-code"
+                        required
+                    >
+
+
+                    <button type="submit" id="submitPayment">
+                        SUBMIT PAYMENT
+                    </button>
+
+                </form>
+
             </div>
+
+
+
+            <!-- PAYMENT CONFIRMATION -->
+            <div class="payment-success" id="paymentSuccess">
+
+                <p class="film-label">
+                    EON UNIVERSE / RESERVATION
+                </p>
+
+                <h2>THANK YOU</h2>
+
+                <p>
+                    Your checkout demonstration is complete.
+                </p>
+
+                <p class="confirmation-message">
+                    Your reservation is awaiting secure payment processing.
+                </p>
+
+                <button type="button" id="finishCheckout">
+                    CLOSE
+                </button>
+
+            </div>
+
+
         </div>
 
-        <label for="billingZip">BILLING ZIP CODE</label>
-        <input id="billingZip" type="text"
-            placeholder="ZIP code" autocomplete="postal-code"
-            required>
-
-        <button type="submit" id="submitPayment">
-            SUBMIT PAYMENT
-        </button>
-
-    </form>
-</div>
-
-<!-- PAYMENT CONFIRMATION -->
-<div class="payment-success" id="paymentSuccess">
-    <p class="film-label">EON UNIVERSE / RESERVATION</p>
-    <h2>THANK YOU</h2>
-    <p>Your checkout demonstration is complete.</p>
-    <p class="confirmation-message">
-        Your reservation is awaiting secure payment processing.
-    </p>
-    <button type="button" id="finishCheckout">
-        CLOSE
-    </button>
-</div>
+    </div>
 
 
+
+    <!-- JAVASCRIPT -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src=".//js/script.js"></script>
+    <script src="./js/script.js"></script>
 
 </body>
 </html>
