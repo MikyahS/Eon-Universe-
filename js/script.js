@@ -2,122 +2,122 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const venueCards = document.querySelectorAll(".photoBox");
-    const mainBoxes = document.querySelector(".mainBoxes");
-
-    if (!venueCards.length || !mainBoxes || !window.gsap) return;
-
-    // THREE COLUMNS
     const columns = [[], [], []];
+    const columnTweens = [[], [], []];
 
+    // ARRANGE VENUES INTO THREE COLUMNS
     venueCards.forEach((card, index) => {
-        const column = index % 3;
-        columns[column].push(card);
+        columns[index % 3].push(card);
     });
 
-    const columnTweens = [];
+    // START THE CAROUSEL
+    if (window.gsap && venueCards.length) {
 
-    // SET UP EACH COLUMN
-    columns.forEach((cards, columnIndex) => {
+        columns.forEach((cards, columnIndex) => {
 
-        const columnPositions = [-210, 0, 210];
-        const speed = [28, 36, 44][columnIndex];
-        const spacing = 950 / cards.length;
-        cards.forEach((card, index) => {
+            const columnPositions = [-210, 0, 210];
+            const speed = [28, 36, 44][columnIndex];
+            const spacing = 420;
+            const cycle = spacing * cards.length;
 
-            gsap.set(card, {
-                position: "absolute",
-                left: "50%",
-                top: 0,
-                x: columnPositions[columnIndex],
-                xPercent: -50,
-                y: index * spacing,
-                width: 460,
-                height: 760,
-                scale: 0.5,
-                zIndex: 1,
-                opacity: 1
+            cards.forEach((card, index) => {
+
+                gsap.set(card, {
+                    position: "absolute",
+                    left: "50%",
+                    top: 0,
+                    x: columnPositions[columnIndex],
+                    xPercent: -50,
+                    y: index * spacing,
+                    width: 460,
+                    height: 760,
+                    scale: 0.5,
+                    zIndex: 1,
+                    opacity: 1
+                });
+
+                const movement = gsap.to(card, {
+                    y: `+=${cycle}`,
+                    duration: speed,
+                    ease: "none",
+                    repeat: -1,
+                    modifiers: {
+                        y: gsap.utils.unitize(value => {
+                            const position = parseFloat(value);
+                            return ((position % cycle) + cycle) % cycle;
+                        })
+                    }
+                });
+
+                columnTweens[columnIndex].push(movement);
+            });
+        });
+
+        // PAUSE THE WHOLE COLUMN ON HOVER
+        venueCards.forEach(card => {
+
+            card.addEventListener("mouseenter", function () {
+
+                const column = columns.findIndex(cards =>
+                    cards.includes(card)
+                );
+
+                columnTweens[column].forEach(tween => tween.pause());
+
+                gsap.to(venueCards, {
+                    opacity: 0.3,
+                    duration: 0.3
+                });
+
+                gsap.to(card, {
+                    scale: 0.65,
+                    opacity: 1,
+                    zIndex: 100,
+                    duration: 0.4
+                });
             });
 
-            // CONTINUOUS DOWNWARD MOVEMENT
-            const movement = gsap.to(card, {
-            y: `+=${950 + spacing}`,
-            duration: speed,
-            ease: "none",
-            repeat: -1,
-            modifiers: {
-         y: gsap.utils.unitize(value => {
-            const position = parseFloat(value);
-            return ((position % (950 + spacing)) + (950 + spacing)) % (950 + spacing);
-        })
+            card.addEventListener("mouseleave", function () {
+
+                const column = columns.findIndex(cards =>
+                    cards.includes(card)
+                );
+
+                columnTweens[column].forEach(tween => tween.resume());
+
+                gsap.to(card, {
+                    scale: 0.5,
+                    zIndex: 1,
+                    duration: 0.4
+                });
+
+                gsap.to(venueCards, {
+                    opacity: 1,
+                    duration: 0.4
+                });
+            });
+        });
     }
-});
 
-            columnTweens[columnIndex] = movement;
-        });
-    });
+    // TICKET POPUP
+    const ticketModal = document.getElementById("ticketModal");
+    const closeTicket = document.getElementById("closeTicket");
+    const selectedVenue = document.getElementById("selectedVenue");
+    const selectedCity = document.getElementById("selectedCity");
 
-    
-// HOVER EFFECT
-venueCards.forEach(card => {
+    // OPEN POPUP WHEN BUY A TICKET IS CLICKED
+    document.addEventListener("click", function (event) {
 
-    card.addEventListener("mouseenter", function () {
+        const button = event.target.closest(".buy-ticket");
 
-        const column = columns.findIndex(cards =>
-            cards.includes(card)
-        );
+        if (!button || !ticketModal) return;
 
-        // Stop the entire column
-        columnTweens[column].pause();
-
-        gsap.to(venueCards, {
-            opacity: 0.3,
-            duration: 0.3
-        });
-
-        gsap.to(card, {
-            scale: 0.65,
-            opacity: 1,
-            zIndex: 100,
-            duration: 0.4,
-            ease: "power2.out"
-        });
-    });
-
-    card.addEventListener("mouseleave", function () {
-
-        const column = columns.findIndex(cards =>
-            cards.includes(card)
-        );
-
-        columnTweens[column].resume();
-
-        gsap.to(card, {
-            scale: 0.5,
-            zIndex: 1,
-            duration: 0.4
-        });
-
-        gsap.to(venueCards, {
-            opacity: 1,
-            duration: 0.4
-        });
-    });
-
-});
-
-// TICKET POPUP
-const ticketModal = document.getElementById("ticketModal");
-const closeTicket = document.getElementById("closeTicket");
-const selectedVenue = document.getElementById("selectedVenue");
-const selectedCity = document.getElementById("selectedCity");
-
-document.querySelectorAll(".buy-ticket").forEach(button => {
-
-    button.addEventListener("click", function (event) {
-
+        event.preventDefault();
         event.stopPropagation();
 
         const card = button.closest(".photoBox");
+
+        if (!card) return;
 
         selectedVenue.textContent =
             card.querySelector("h2").textContent;
@@ -128,14 +128,24 @@ document.querySelectorAll(".buy-ticket").forEach(button => {
         ticketModal.classList.add("active");
     });
 
-});
+    // CLOSE POPUP
+    if (closeTicket && ticketModal) {
 
-closeTicket.addEventListener("click", function () {
-    ticketModal.classList.remove("active");
-});
+        closeTicket.addEventListener("click", function () {
+            ticketModal.classList.remove("active");
+        });
 
-ticketModal.addEventListener("click", function (event) {
-    if (event.target === ticketModal) {
-        ticketModal.classList.remove("active");
+        ticketModal.addEventListener("click", function (event) {
+            if (event.target === ticketModal) {
+                ticketModal.classList.remove("active");
+            }
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                ticketModal.classList.remove("active");
+            }
+        });
     }
+
 });
