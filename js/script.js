@@ -56,49 +56,50 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // HOVER EFFECT
-    venueCards.forEach(card => {
+    
+// HOVER EFFECT
+venueCards.forEach(card => {
 
-        card.addEventListener("mouseenter", function () {
+    card.addEventListener("mouseenter", function () {
 
-            const column = [...columns].findIndex(cards =>
-                cards.includes(card)
-            );
+        const column = columns.findIndex(cards =>
+            cards.includes(card)
+        );
 
-            columnTweens[column].pause();
+        // Stop the entire column
+        columnTweens[column].pause();
 
-            gsap.to(venueCards, {
-                opacity: 0.3,
-                duration: 0.3
-            });
-
-            gsap.to(card, {
-                scale: 0.65,
-                opacity: 1,
-                zIndex: 100,
-                duration: 0.4,
-                ease: "power2.out"
-            });
+        gsap.to(venueCards, {
+            opacity: 0.3,
+            duration: 0.3
         });
 
-        card.addEventListener("mouseleave", function () {
+        gsap.to(card, {
+            scale: 0.65,
+            opacity: 1,
+            zIndex: 100,
+            duration: 0.4,
+            ease: "power2.out"
+        });
+    });
 
-            const column = [...columns].findIndex(cards =>
-                cards.includes(card)
-            );
+    card.addEventListener("mouseleave", function () {
 
-            columnTweens[column].resume();
+        const column = columns.findIndex(cards =>
+            cards.includes(card)
+        );
 
-            gsap.to(card, {
-                scale: 0.5,
-                zIndex: 1,
-                duration: 0.4
-            });
+        columnTweens[column].resume();
 
-            gsap.to(venueCards, {
-                opacity: 1,
-                duration: 0.4
-            });
+        gsap.to(card, {
+            scale: 0.5,
+            zIndex: 1,
+            duration: 0.4
+        });
+
+        gsap.to(venueCards, {
+            opacity: 1,
+            duration: 0.4
         });
     });
 
